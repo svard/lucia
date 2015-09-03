@@ -14,7 +14,7 @@ defmodule Lucia.Mixfile do
   #
   # Type `mix help compile.app` for more information
   def application do
-    [applications: [:logger, :amqp],
+    [applications: [:logger, :amqp, :poison, :timex],
      mod: {Lucia, []}]
   end
 
@@ -28,6 +28,8 @@ defmodule Lucia.Mixfile do
   #
   # Type `mix help deps` for more examples and options
   defp deps do
-    [{:amqp, "~> 0.1.0"}]
+    [{:amqp, "~> 0.1.0"},
+     {:poison, "~> 1.5"},
+     {:timex, "~> 0.19.0"}]
   end
 end
