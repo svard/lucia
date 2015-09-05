@@ -5,6 +5,9 @@ use Mix.Config
 config :lucia, RabbitMQ,
   host: "192.168.0.108",
   exchange: "automation"
+
+config :lucia, Service,
+  url: "http://192.168.0.108:8080/services/api/light"
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this
 # file won't be loaded nor affect the parent project. For this reason,

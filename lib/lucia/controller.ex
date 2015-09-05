@@ -17,7 +17,8 @@ defmodule Lucia.Controller do
     end
   end
 
-  def check(%{date: date}) do
+  def check(%{date: date, level: level}) do
+    Logger.debug "Level #{level}"
     {:ok, dt} = Timex.Parse.DateTime.Parser.parse(date, "{ISOz}")
 
     if dt.hour == 12 && State.get.triggered do

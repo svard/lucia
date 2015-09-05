@@ -2,7 +2,7 @@ defmodule Lucia.Light do
   use HTTPoison.Base
 
   def process_url(id) do
-    "http://tomcat.kristofersvard.se/services/api/light/#{id}"
+    Application.get_env(:lucia, Service)[:url] <> "/#{id}"
   end
 
   def process_request_body(body) do
