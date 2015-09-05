@@ -3,7 +3,7 @@ defmodule Lucia.Mixfile do
 
   def project do
     [app: :lucia,
-     version: "0.0.1",
+     version: "1.0.0",
      elixir: "> 1.0.0",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -14,7 +14,7 @@ defmodule Lucia.Mixfile do
   #
   # Type `mix help compile.app` for more information
   def application do
-    [applications: [:logger, :amqp, :poison, :timex],
+    [applications: [:logger, :amqp, :poison, :timex, :httpoison],
      mod: {Lucia, []}]
   end
 
@@ -30,6 +30,8 @@ defmodule Lucia.Mixfile do
   defp deps do
     [{:amqp, "~> 0.1.0"},
      {:poison, "~> 1.5"},
-     {:timex, "~> 0.19.0"}]
+     {:timex, "~> 0.19.0"},
+     {:httpoison, "~> 0.7.0"},
+     {:exrm, "~> 0.19"}]
   end
 end
