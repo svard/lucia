@@ -17,4 +17,8 @@ defmodule Lucia do
     opts = [strategy: :one_for_one, name: Lucia.Supervisor]
     Supervisor.start_link(children, opts)
   end
+
+  def light_api do
+    Application.get_env(:lucia, :light_api)
+  end
 end

@@ -3,5 +3,4 @@ use Mix.Config
 config :logger,
   level: :error
 
-config :lucia, Lights,
-  ids: []
+config :lucia, :light_api, Lucia.Light.Api.Test
