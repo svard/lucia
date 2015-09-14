@@ -1,5 +1,4 @@
 defmodule Lucia.State do
-#  alias Lucia.Light
   require Logger
   
   def start_link() do
@@ -20,7 +19,7 @@ defmodule Lucia.State do
   end
 
   def trigger() do
-    light_ids = Application.get_env(:lucia, Lights)[:ids]
+    light_ids = Application.get_env(:lucia, :lights)[:ids]
     Agent.update(__MODULE__, fn state -> %{state | :triggered => true} end)
     Enum.each(light_ids, fn id ->
       Lucia.light_api.switch_on id

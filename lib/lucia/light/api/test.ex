@@ -7,11 +7,11 @@ defmodule Lucia.Light.Api.Test do
     {:ok, []}
   end
 
-  def switch_on(id) do
+  def switch_on(_id) do
     :ok
   end
 
-  def switch_off(id) do
+  def switch_off(_id) do
     :ok
   end
 end
