@@ -6,7 +6,7 @@ defmodule Lucia.Controller do
   def check(%{date: date, level: level}) when level < 0.1 do
     {:ok, dt} = Timex.Parse.DateTime.Parser.parse(date, "{ISOz}")
 
-    if level < 0.1 && !State.get.triggered do
+    if !State.get.triggered do
       Logger.debug "Level #{level}, incrementing threshold"
       State.increment()
     end

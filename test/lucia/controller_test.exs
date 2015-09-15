@@ -74,6 +74,26 @@ defmodule Lucia.ControllerTest do
     assert State.get == %{threshold: 5, triggered: false}
   end
 
+  test "should not trigger if started after 23:00" do
+    check %{date: "2015-09-02T23:33:03Z", level: 0.055}
+    assert State.get == %{threshold: 1, triggered: false}
+
+    check %{date: "2015-09-02T23:38:03Z", level: 0.055}
+    assert State.get == %{threshold: 2, triggered: false}
+
+    check %{date: "2015-09-02T23:43:03Z", level: 0.055}
+    assert State.get == %{threshold: 3, triggered: false}
+
+    check %{date: "2015-09-02T23:48:03Z", level: 0.055}
+    assert State.get == %{threshold: 4, triggered: false}
+
+    check %{date: "2015-09-02T23:53:03Z", level: 0.055}
+    assert State.get == %{threshold: 5, triggered: false}
+
+    check %{date: "2015-09-02T23:58:03Z", level: 0.055}
+    assert State.get == %{threshold: 6, triggered: false}
+  end
+
   test "should reset state after 12:00 and level above 0.1" do
     check %{date: "2015-09-02T17:10:03Z", level: 0.055}
     assert State.get == %{threshold: 1, triggered: false}
