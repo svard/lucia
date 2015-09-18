@@ -9,7 +9,8 @@ defmodule Lucia do
     children = [
       # Define workers and child supervisors to be supervised
       worker(Lucia.Consumer, []),
-      worker(Lucia.State, [])
+      worker(Lucia.Fsm, [])
+#      worker(Lucia.State, [])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

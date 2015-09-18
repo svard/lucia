@@ -3,7 +3,7 @@ defmodule Lucia.Mixfile do
 
   def project do
     [app: :lucia,
-     version: "1.0.3",
+     version: "1.1.0",
      elixir: "> 1.0.0",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
