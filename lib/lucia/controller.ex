@@ -12,7 +12,7 @@ defmodule Lucia.Controller do
     end
   end
 
-  def check(%{date: date, level: level}) do
+  def check(%{date: _date, level: level}) do
     Logger.debug "Level #{level}"
 
     Fsm.reset

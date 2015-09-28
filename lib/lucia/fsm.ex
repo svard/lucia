@@ -1,4 +1,5 @@
 defmodule Lucia.Fsm do
+  @behaviour :gen_fsm
 
   def start_link() do
     Lucia.light_api.start
@@ -52,5 +53,13 @@ defmodule Lucia.Fsm do
 
   def handle_sync_event(:get, _from, state_name, state) do
     {:reply, state.triggered, state_name, state}
+  end
+
+  def terminate(:normal, _, _) do
+    :ok
+  end
+
+  def code_change(_old_version, state_name, state_data, _extra) do
+    {:ok, state_name, state_data}
   end
 end
