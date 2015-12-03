@@ -12,9 +12,19 @@ defmodule Lucia.Controller do
     end
   end
 
-  def check(%{date: _date, level: level}) do
+  def check(%{date: date, level: level}) do
+    {:ok, dt} = Timex.Parse.DateTime.Parser.parse(date, "{ISOz}")
+    
     Logger.debug "Level #{level}"
 
-    Fsm.reset
+    case Fsm.get do
+      false ->
+        Fsm.reset
+
+      true ->
+        if dt.hour == 11 do
+          Fsm.reset
+        end
+    end
   end  
 end
