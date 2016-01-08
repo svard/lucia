@@ -30,8 +30,8 @@ defmodule Lucia.Mixfile do
   defp deps do
     [{:amqp, "~> 0.1.0"},
      {:poison, "~> 1.5"},
-     {:timex, "~> 0.19.0"},
-     {:httpoison, "~> 0.7.0"},
-     {:exrm, "~> 0.19"}]
+     {:timex, "~> 1.0.0"},
+     {:httpoison, "~> 0.8.0"},
+     {:exrm, "~> 1.0.0-rc7"}]
   end
 end
